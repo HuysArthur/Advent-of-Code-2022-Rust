@@ -3,6 +3,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -20,6 +21,10 @@ fn main() {
     let input_day4 = utils::read_file("input_files/day4.txt").unwrap();
     println!("Result day4 part1: {}", day4::result_part1(&input_day4));
     println!("Result day4 part2: {}", day4::result_part2(&input_day4));
+
+    let input_day5 = utils::read_file("input_files/day5.txt").unwrap();
+    println!("Result day5 part1: {}", day5::result_part1(&input_day5));
+    println!("Result day5 part2: {}", day5::result_part2(&input_day5));
 }
 
 #[cfg(test)]
@@ -117,5 +122,31 @@ mod tests_day4 {
     #[test]
     fn part2_example() {
         assert_eq!(day4::result_part2(EXAMPLE_INPUT), 4);
+    }
+}
+
+#[cfg(test)]
+mod tests_day5 {
+    use crate::day5;
+
+    const EXAMPLE_INPUT: &str =
+    "    [D]    
+    [N] [C]    
+[Z] [M] [P]
+ 1   2   3 
+
+move 1 from 2 to 1
+    move 3 from 1 to 3
+    move 2 from 2 to 1
+    move 1 from 1 to 2";
+
+    #[test]
+    fn part1_example() {
+        assert_eq!(day5::result_part1(EXAMPLE_INPUT), "CMZ");
+    }
+
+    #[test]
+    fn part2_example() {
+        assert_eq!(day5::result_part2(EXAMPLE_INPUT),"MCD");
     }
 }
