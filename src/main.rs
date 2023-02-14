@@ -4,6 +4,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -25,6 +26,12 @@ fn main() {
     let input_day5 = utils::read_file("input_files/day5.txt").unwrap();
     println!("Result day5 part1: {}", day5::result_part1(&input_day5));
     println!("Result day5 part2: {}", day5::result_part2(&input_day5));
+
+    
+
+    let input_day6 = utils::read_file("input_files/day6.txt").unwrap();
+    println!("Result day6 part1: {}", day6::result_part1(&input_day6));
+    println!("Result day6 part2: {}", day6::result_part2(&input_day6));
 }
 
 #[cfg(test)]
@@ -148,5 +155,59 @@ move 1 from 2 to 1
     #[test]
     fn part2_example() {
         assert_eq!(day5::result_part2(EXAMPLE_INPUT),"MCD");
+    }
+}
+
+#[cfg(test)]
+mod tests_day6 {
+    use crate::day6;
+
+    const EXAMPLE_INPUT_1: &str = "bvwbjplbgvbhsrlpgdmjqwftvncz";
+    const EXAMPLE_INPUT_2: &str = "nppdvjthqldpwncqszvftbrmjlhg";
+    const EXAMPLE_INPUT_3: &str = "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg";
+    const EXAMPLE_INPUT_4: &str = "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw";
+
+    const EXAMPLE_INPUT_5: &str = "mjqjpqmgbljsphdztnvjfqwrcgsmlb";
+    const EXAMPLE_INPUT_6: &str = "bvwbjplbgvbhsrlpgdmjqwftvncz";
+    const EXAMPLE_INPUT_7: &str = "nppdvjthqldpwncqszvftbrmjlhg";
+    const EXAMPLE_INPUT_8: &str = "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg";
+    const EXAMPLE_INPUT_9: &str = "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw";
+
+    #[test]
+    fn part1_example_1() {
+        assert_eq!(day6::result_part1(EXAMPLE_INPUT_1), 5);
+    }
+    #[test]
+    fn part1_example_2() {
+        assert_eq!(day6::result_part1(EXAMPLE_INPUT_2), 6);
+    }
+    #[test]
+    fn part1_example_3() {
+        assert_eq!(day6::result_part1(EXAMPLE_INPUT_3), 10);
+    }
+    #[test]
+    fn part1_example_4() {
+        assert_eq!(day6::result_part1(EXAMPLE_INPUT_4), 11);
+    }
+
+    #[test]
+    fn part2_example_1() {
+        assert_eq!(day6::result_part2(EXAMPLE_INPUT_5), 19);
+    }
+    #[test]
+    fn part2_example_2() {
+        assert_eq!(day6::result_part2(EXAMPLE_INPUT_6), 23);
+    }
+    #[test]
+    fn part2_example_3() {
+        assert_eq!(day6::result_part2(EXAMPLE_INPUT_7), 23);
+    }
+    #[test]
+    fn part2_example_4() {
+        assert_eq!(day6::result_part2(EXAMPLE_INPUT_8), 29);
+    }
+    #[test]
+    fn part2_example_5() {
+        assert_eq!(day6::result_part2(EXAMPLE_INPUT_9), 26);
     }
 }
