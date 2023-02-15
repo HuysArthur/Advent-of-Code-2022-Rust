@@ -5,6 +5,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -27,11 +28,13 @@ fn main() {
     println!("Result day5 part1: {}", day5::result_part1(&input_day5));
     println!("Result day5 part2: {}", day5::result_part2(&input_day5));
 
-    
-
     let input_day6 = utils::read_file("input_files/day6.txt").unwrap();
     println!("Result day6 part1: {}", day6::result_part1(&input_day6));
     println!("Result day6 part2: {}", day6::result_part2(&input_day6));
+
+    let input_day7 = utils::read_file("input_files/day7.txt").unwrap();
+    println!("Result day7 part1: {}", day7::result_part1(&input_day7));
+    println!("Result day7 part2: {}", day7::result_part2(&input_day7));
 }
 
 #[cfg(test)]
@@ -209,5 +212,45 @@ mod tests_day6 {
     #[test]
     fn part2_example_5() {
         assert_eq!(day6::result_part2(EXAMPLE_INPUT_9), 26);
+    }
+}
+
+#[cfg(test)]
+mod tests_day7 {
+    use crate::day7;
+
+    const EXAMPLE_INPUT: &str = 
+"$ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k";
+
+    #[test]
+    fn part1_example() {
+        assert_eq!(day7::result_part1(EXAMPLE_INPUT), 95437);
+    }
+
+    #[test]
+    fn part2_example() {
+        assert_eq!(day7::result_part2(EXAMPLE_INPUT), 24933642);
     }
 }
