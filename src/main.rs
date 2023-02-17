@@ -7,6 +7,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -40,6 +41,10 @@ fn main() {
     let input_day8 = utils::read_file("input_files/day8.txt").unwrap();
     println!("Result day8 part1: {}", day8::result_part1(&input_day8));
     println!("Result day8 part2: {}", day8::result_part2(&input_day8));
+
+    let input_day9 = utils::read_file("input_files/day9.txt").unwrap();
+    println!("Result day9 part1: {}", day9::result_part1(&input_day9));
+    println!("Result day9 part2: {}", day9::result_part2(&input_day9));
 }
 
 #[cfg(test)]
@@ -278,5 +283,43 @@ mod tests_day8 {
     #[test]
     fn part2_example() {
         assert_eq!(day8::result_part2(EXAMPLE_INPUT), 8);
+    }
+}
+
+#[cfg(test)]
+mod tests_day9 {
+    use crate::day9;
+
+    const EXAMPLE_INPUT_1: &str = "R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2";
+
+    const EXAMPLE_INPUT_2: &str = "R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20";
+
+    #[test]
+    fn part1_example() {
+        assert_eq!(day9::result_part1(EXAMPLE_INPUT_1), 13);
+    }
+
+    #[test]
+    fn part2_example_1() {
+        assert_eq!(day9::result_part2(EXAMPLE_INPUT_1), 1);
+    }
+
+    #[test]
+    fn part2_example_2() {
+        assert_eq!(day9::result_part2(EXAMPLE_INPUT_2), 36);
     }
 }
