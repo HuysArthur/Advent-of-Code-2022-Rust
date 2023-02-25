@@ -8,6 +8,7 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day10;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -45,6 +46,10 @@ fn main() {
     let input_day9 = utils::read_file("input_files/day9.txt").unwrap();
     println!("Result day9 part1: {}", day9::result_part1(&input_day9));
     println!("Result day9 part2: {}", day9::result_part2(&input_day9));
+
+    let input_day10 = utils::read_file("input_files/day10.txt").unwrap();
+    println!("Result day10 part1: {}", day10::result_part1(&input_day10));
+    println!("Result day10 part2: \n{}", day10::result_part2(&input_day10));
 }
 
 #[cfg(test)]
@@ -322,4 +327,172 @@ U 20";
     fn part2_example_2() {
         assert_eq!(day9::result_part2(EXAMPLE_INPUT_2), 36);
     }
+}
+
+#[cfg(test)]
+mod tests_day10 {
+    use crate::day10;
+
+    const EXAMPLE_INPUT: &str = "addx 15
+addx -11
+addx 6
+addx -3
+addx 5
+addx -1
+addx -8
+addx 13
+addx 4
+noop
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx -35
+addx 1
+addx 24
+addx -19
+addx 1
+addx 16
+addx -11
+noop
+noop
+addx 21
+addx -15
+noop
+noop
+addx -3
+addx 9
+addx 1
+addx -3
+addx 8
+addx 1
+addx 5
+noop
+noop
+noop
+noop
+noop
+addx -36
+noop
+addx 1
+addx 7
+noop
+noop
+noop
+addx 2
+addx 6
+noop
+noop
+noop
+noop
+noop
+addx 1
+noop
+noop
+addx 7
+addx 1
+noop
+addx -13
+addx 13
+addx 7
+noop
+addx 1
+addx -33
+noop
+noop
+noop
+addx 2
+noop
+noop
+noop
+addx 8
+noop
+addx -1
+addx 2
+addx 1
+noop
+addx 17
+addx -9
+addx 1
+addx 1
+addx -3
+addx 11
+noop
+noop
+addx 1
+noop
+addx 1
+noop
+noop
+addx -13
+addx -19
+addx 1
+addx 3
+addx 26
+addx -30
+addx 12
+addx -1
+addx 3
+addx 1
+noop
+noop
+noop
+addx -9
+addx 18
+addx 1
+addx 2
+noop
+noop
+addx 9
+noop
+noop
+noop
+addx -1
+addx 2
+addx -37
+addx 1
+addx 3
+noop
+addx 15
+addx -21
+addx 22
+addx -6
+addx 1
+noop
+addx 2
+addx 1
+noop
+addx -10
+noop
+noop
+addx 20
+addx 1
+addx 2
+addx 2
+addx -6
+addx -11
+noop
+noop
+noop";
+
+    #[test]
+    fn part1_example() {
+        assert_eq!(day10::result_part1(EXAMPLE_INPUT), 13140);
+    }
+
+    #[test]
+    fn part2_example() {
+        assert_eq!(day10::result_part2(EXAMPLE_INPUT), "##..##..##..##..##..##..##..##..##..##..
+###...###...###...###...###...###...###.
+####....####....####....####....####....
+#####.....#####.....#####.....#####.....
+######......######......######......####
+#######.......#######.......#######.....".to_string())
+    }
+
 }
