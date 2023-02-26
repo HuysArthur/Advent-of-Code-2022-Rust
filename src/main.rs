@@ -9,6 +9,7 @@ mod day7;
 mod day8;
 mod day9;
 mod day10;
+mod day11;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -50,6 +51,10 @@ fn main() {
     let input_day10 = utils::read_file("input_files/day10.txt").unwrap();
     println!("Result day10 part1: {}", day10::result_part1(&input_day10));
     println!("Result day10 part2: \n{}", day10::result_part2(&input_day10));
+
+    let input_day11 = utils::read_file("input_files/day11.txt").unwrap();
+    println!("Result day11 part1: {}", day11::result_part1(&input_day11));
+    // println!("Result day10 part2: \n{}", day10::result_part2(&input_day10));
 }
 
 #[cfg(test)]
@@ -495,4 +500,49 @@ noop";
 #######.......#######.......#######.....".to_string())
     }
 
+}
+
+#[cfg(test)]
+mod test_day11 {
+    use crate::day11;
+
+    const EXAMPLE_INPUT: &str = "Monkey 0:
+  Starting items: 79, 98
+  Operation: new = old * 19
+  Test: divisible by 23
+    If true: throw to monkey 2
+    If false: throw to monkey 3
+
+Monkey 1:
+  Starting items: 54, 65, 75, 74
+  Operation: new = old + 6
+  Test: divisible by 19
+    If true: throw to monkey 2
+    If false: throw to monkey 0
+
+Monkey 2:
+  Starting items: 79, 60, 97
+  Operation: new = old * old
+  Test: divisible by 13
+    If true: throw to monkey 1
+    If false: throw to monkey 3
+
+Monkey 3:
+  Starting items: 74
+  Operation: new = old + 3
+  Test: divisible by 17
+    If true: throw to monkey 0
+    If false: throw to monkey 1";
+
+    #[test]
+    fn result_part1() {
+        assert_eq!(day11::result_part1(EXAMPLE_INPUT), 10605);
+    }
+
+    /*
+    #[test]
+    fn result_part2() {
+        assert_eq!(day11::result_part2(EXAMPLE_INPUT), 2713310158);
+    }
+    */
 }
