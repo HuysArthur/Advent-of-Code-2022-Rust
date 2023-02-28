@@ -54,7 +54,7 @@ fn main() {
 
     let input_day11 = utils::read_file("input_files/day11.txt").unwrap();
     println!("Result day11 part1: {}", day11::result_part1(&input_day11));
-    // println!("Result day10 part2: \n{}", day10::result_part2(&input_day10));
+    println!("Result day11 part2: {}", day11::result_part2(&input_day11));
 }
 
 #[cfg(test)]
@@ -539,10 +539,8 @@ Monkey 3:
         assert_eq!(day11::result_part1(EXAMPLE_INPUT), 10605);
     }
 
-    /*
     #[test]
     fn result_part2() {
         assert_eq!(day11::result_part2(EXAMPLE_INPUT), 2713310158);
     }
-    */
 }
