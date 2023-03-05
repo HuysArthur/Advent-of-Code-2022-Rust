@@ -10,6 +10,7 @@ mod day8;
 mod day9;
 mod day10;
 mod day11;
+mod day12;
 
 fn main() {
     let input_day1 = utils::read_file("input_files/day1.txt").unwrap();
@@ -55,6 +56,10 @@ fn main() {
     let input_day11 = utils::read_file("input_files/day11.txt").unwrap();
     println!("Result day11 part1: {}", day11::result_part1(&input_day11));
     println!("Result day11 part2: {}", day11::result_part2(&input_day11));
+
+    let input_day12 = utils::read_file("input_files/day12.txt").unwrap();
+    println!("Result day12 part1: {}", day12::result_part1(&input_day12));
+    //println!("Result day12 part2: {}", day12::result_part2(&input_day12));
 }
 
 #[cfg(test)]
@@ -503,7 +508,7 @@ noop";
 }
 
 #[cfg(test)]
-mod test_day11 {
+mod tests_day11 {
     use crate::day11;
 
     const EXAMPLE_INPUT: &str = "Monkey 0:
@@ -543,4 +548,21 @@ Monkey 3:
     fn result_part2() {
         assert_eq!(day11::result_part2(EXAMPLE_INPUT), 2713310158);
     }
+}
+
+#[cfg(test)]
+mod tests_day12 {
+    use crate::day12;
+
+    const EXAMPLE_INPUT: &str = "Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi";
+
+    #[test]
+    fn result_part1() {
+        assert_eq!(day12::result_part1(EXAMPLE_INPUT), 31)
+    }
+    
 }
